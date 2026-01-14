@@ -16,7 +16,8 @@ namespace ProjectStudentAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+
+
             modelBuilder.Entity<ProjectStudent>()
                 .HasKey(ps => new { ps.ProjectId, ps.StudentId });
 
@@ -30,9 +31,7 @@ namespace ProjectStudentAPI.Data
                 .WithMany(s => s.ProjectStudents)
                 .HasForeignKey(ps => ps.StudentId);
 
-            modelBuilder.Entity<Project>()
-                .HasIndex(p => p.Title)
-                .IsUnique();
+
         }
     }
 }
